@@ -1,58 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <style>
-            
-            test{
-                color: white;
-                
-            }
-            text{
-                color: white;
-            }
-            h2{
-                color: white;
-                font-size: small;
-            }
-            form{
-                justify-content: center;
-                color: white;
-            }
-            /* HOVERING OVER BUTTON */
-            .btn:hover
-            {
-                color: black;
-                background: white;                    
-                cursor: pointer;
-            }
-            
-        </style>
-    </head>
-    <body>
-        {% extends 'base.html' %}
-        <div class = "login-info"></div>
-            {% block title %}Login{% endblock %}
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        *
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    
+    
+}
+section
+{
+    padding: 100px;
 
-            {% block content %}
+}
+header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 1s;
+}
+header .logo
+{
+/*
+    position: fixed;
+    padding: 200px;
+*/
+    opacity: 1;
+    position: relative;
+    /*background: #2d852d;*/
+    background: black;
+    display: inline-block;
+    color: #fff;
+    margin-top: 0px;
+    padding: 5px 10px;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+/* MAIN LOGO */
+header .logo:hover
+{
+    background: white;
+    color: black;
+    border-radius: 10px;
+}
+.banner
+{
+    position: relative;
+    min-height: 100vh;
+    background: black;
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#rectangle
+{
+    opacity: 1;
+    width: 600px;
+    height: 325px;
+    background: rgb(48, 47, 56);
+    
+}
+.textBx
+{
+    text-align: center;
+    justify-content: center;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    line-height: 2.2em;
+    word-wrap: break-word;
+}
+.textBx label
+{
+    padding-right: 10px;
+}
+.banner .welcome
+{
+    color: red;
+    display: block;
+}
+/* HOVERING OVER BUTTON */
+.btn:hover
+{
+    color: black;
+    background: white;
+    cursor: pointer;
+    
+}
+/* REGULAR BUTTON */
+.btn
+{
+    opacity: 1;
+    position: relative;
+    /*background: #2d852d;*/
+    background: black;
+    display: inline-block;
+    color: #fff;
+    margin-top: 0px;
+    padding: 5px 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: 500;
+    margin-bottom: auto;
+    border-radius: 10px;
+    text-align: center;
+    
+    
+}
+a
+{
+    color: white;
+}
+input
+{
+    color: white;
+    text-shadow: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    offset: auto;
+    border: 0;
+    padding: 6px 10px;
+    margin: 5px, 0;
+    opacity: 100%;
+    font: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+input[type=text], input.form-control{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(48, 48, 48);
+}
+::placeholder
+{
+    opacity: .2;
+}
+.invalid-feedback
+{
+    color: red;
+    margin-left: 0px;
+    display: block;
+}
+/* Sign in Form */
+.textBx
+{
+    position: relative;
+    padding-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Already have an account */
+.mt-4
+{
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+h2
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding-bottom: 10%;
+}
+html, body {
+    height: 70%;
+}
 
-              <h1>Login</h1>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button class = btn type="sumbit">Login</button>
-                    
-                </form> 
+html {
+    display: table;
+    margin: auto;
+}
 
-        </div>
-        <div class = "text">
-            <h2>Create an account <a href="{% url 'register' %}" class="ml-2">Register</a>
-                </h2>
-        </div>
-        
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
 
-        {% endblock %}
-        <div class = "test"> hi
-        </div>    
-    </body>
-</html>
+	</style>
+<body>
+    <div class="textBx">
+    <div class="container_h">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+
+
+					<h2 id="form-title">LOGIN</h2>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form method="POST" action="">
+                        {% csrf_token %}
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="username" placeholder="Username..." class="form-control">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+								<input type="password" name="password" placeholder="Password..." class="form-control" >
+						</div>
+
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 				<input class="btn login_btn" type="submit" value="Login">
+				   			</div>
+					</form>
+
+                    {{ form.errors }}
+
+				</div>
+		
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+					</div>
+			
+				</div>
+			</div>
+		</div>
+	</div>
+    </div>
+</body>
