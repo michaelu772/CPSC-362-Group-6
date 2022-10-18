@@ -10,7 +10,7 @@
             {% url 'profile' as profile_url %}
             <span>Hi {% if request.path == profile_url %}{{user.username}}{% else %}<a href="{{ profile_url }}">{{user.username}}</a>{% endif %}</span>
             <span><a href="{% url 'logout' %}">Logout</a></span>
-        {% elif request.path == register_url %}
+        {% elif request.path == register_url or request.path == login_url %}
 
         {% else %}
             <span><a href="{% url 'login' %}">Login</a></span>
