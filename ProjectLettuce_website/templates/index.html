@@ -99,7 +99,7 @@
             </div>
         </a>
         
-        <a href="#" style="text-decoration: none;">
+        <a  {% if user.is_authenticated %} href="#"  {% else %} href="{% url 'login' %}" {% endif %} style="text-decoration: none;">
             <div class="grid-items">
                 <div class="grid-header">
                     <h2>
@@ -111,7 +111,7 @@
             </div>
         </a>
 
-        <a href="#" style="text-decoration: none;">
+        <a href="{% url 'profile' %}" style="text-decoration: none;">
             <div class="grid-items">
                 <div class="grid-header">
                     <h2>
