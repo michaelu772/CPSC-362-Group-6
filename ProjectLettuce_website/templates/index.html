@@ -3,7 +3,137 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>
-    Template Homepage
-</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .background
+    {
+        position: relative;
+        height: 30vh;
+        background-size: cover;
+        text-align: center;
+        
+    }
+
+    .background-text
+    {
+        color: rgba(255, 255, 255, 0.8);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .grid-container 
+    {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 325px);
+        grid-gap: 20px;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .grid-items 
+    {
+      background-color: black;
+      padding: 20px;
+      padding-bottom: 10px;
+      margin-top: 10px;
+      border-radius: 15px;
+    }
+
+    .grid-items i
+    {
+        font-size: 5rem;
+        margin-bottom: 15px;
+    }
+
+    .grid-items h2 
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 15px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .grid-items:hover
+    {
+        background-color: rgba(255, 255, 255, 0.8);  
+    }
+
+    .grid-header
+    {
+        text-align: center;
+        margin-bottom: 5px;
+        color:  rgba(255, 255, 255, 0.8);
+    }
+
+    .grid-header:hover
+    {
+        background-color: rgba(255, 255, 255, 0.8);  
+    }
+
+</style>
+    <div class="background">
+        <div class="background-text">
+            <p style="font-size: 30px;">
+                <b>
+                    Project Lettuce,
+                </b>
+                the place to find a job that fits your skills!
+            </p>
+        </div>
+
+    </div>
+
+    <div class="grid-container">
+        <a href="#" style="text-decoration: none;">
+            <div class="grid-items">
+                <div class="grid-header">
+                    <h2>
+                        <i class="fa fa-search" style="color:rgba(255, 255, 255, 0.8);"></i>
+                        <br>
+                        Search
+                    </h2>
+                </div>
+            </div>
+        </a>
+        
+        <a  {% if user.is_authenticated %} href="#"  {% else %} href="{% url 'login' %}" {% endif %} style="text-decoration: none;">
+            <div class="grid-items">
+                <div class="grid-header">
+                    <h2>
+                        <i class="fa fa-edit" ></i>
+                        <br>
+                        Post
+                    </h2>
+                </div>
+            </div>
+        </a>
+
+        <a href="{% url 'profile' %}" style="text-decoration: none;">
+            <div class="grid-items">
+                <div class="grid-header">
+                    <h2>
+                        <i class="fa fa-user-circle-o" ></i>
+                        <br>
+                        Account
+                    </h2>
+                </div>
+            </div>
+        </a>
+
+        <a href="{% url 'about' %}" style="text-decoration: none;">
+            <div class="grid-items">
+                <div class="grid-header">
+                    <h2>
+                        <i class="	fa fa-group" ></i>
+                        <br>
+                        About
+                    </h2>
+                </div>
+            </div>
+        </a>
+    
+    </div>
 {% endblock %}
