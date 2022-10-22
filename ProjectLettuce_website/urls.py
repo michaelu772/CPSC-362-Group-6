@@ -34,4 +34,6 @@ urlpatterns = [
     ),
     path("accounts/logout", auth_views.LogoutView.as_view(), name="logout"),
     path("accounts/register", views.registerPage, name="register"),
+    #path("add_job/", views.add_job, name="add_job"),
+    path("all_jobs", views.all_jobs, name="all_jobs"),
 ]

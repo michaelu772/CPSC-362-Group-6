@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import CreateUserForm
+from apps.job.models import Job
 
 
 
@@ -19,6 +20,10 @@ def about(request):
 def login(request):
     return render(request, "accounts/login.html")
 
+def all_jobs(request):
+    jobs = Job.objects.all()[0:3]
+    return render(request, 'all_jobs.html', {'jobs': jobs})
+
 def registerPage(request):
     form = CreateUserForm()
 
@@ -29,7 +34,7 @@ def registerPage(request):
             user = form.cleaned_data.get('username')
             messages.success(request, "Account was created for " + user)
 
-            return redirect('login')
+            return redirect('profile')
 
 
     context = {'form' :form}
