@@ -3,7 +3,8 @@
 <head>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-        *
+
+*
 {
     margin: 0;
     padding: 0;
@@ -69,12 +70,12 @@ header .logo:hover
     justify-content: center;
     align-items: center;
 }
-#rectangle
+.rectangle
 {
-    opacity: 1;
+    background: white;
     width: 600px;
     height: 325px;
-    background: rgb(48, 47, 56);
+    border: 2px solid, white;
     
 }
 .textBx
@@ -186,13 +187,25 @@ input[type=text], input.form-control{
     color: white;
 }
 /* Register Account text */
-h1, h2, h3
+h1, h2, h3, p, .content
 {
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
 }
+.list{
+    padding-right: 500px;
+    padding-left: 500px;
+}
+.card, .grid-header{
+    border-radius: 25px;
+    border: 2px solid white;
+    padding: 20px;
+    margin: 20px;
+
+}
+
     </style>
     <meta charset="utf-8">
     <title>{% block title%}Project Lettuce{% endblock %}</title>
