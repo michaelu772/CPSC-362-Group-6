@@ -3,7 +3,27 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-<h1>
-    {{ user.username }}'s profile
-</h1>
+    <h1 style="justify-content: center;">
+        {{ user.username }}'s profile
+    </h1>
+    
+    {% for job in request.user.jobs.all %}
+        <div list="list">
+            <div class="card" style="color: white;">
+                <div class="content">
+                    <span style='float:left'>
+                    {{ job.title }}
+                    </span>
+                </div>
+                {{ job.short_description }}
+                <span style="float: right;">
+                    Posted {{ job.created_at }}
+                </span>
+            </div>
+        </div> 
+    {% empty %}
+        <h2>You don't have any listings...</h2>
+{% endfor %}
+
+
 {% endblock %}

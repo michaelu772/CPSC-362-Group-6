@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2 class="subtitle has-text-centered">Newest Jobs</h2>
+    <h2 class="title" style="justify-content: center;">Newest Jobs</h2>
 
     <div class="list">
         {% for job in jobs %}
@@ -9,6 +9,7 @@
                 <div class="userthumbnail">
                     <div class="card-content">
                         <h2> {{job.title}} </h2>
+                        <h3> {{job.created_by}}</h3>
                         <p class="subtitle is-6">{{ job.short_description }}</p>
 
                         <div class="content">

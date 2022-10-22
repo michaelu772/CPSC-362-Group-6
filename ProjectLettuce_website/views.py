@@ -21,7 +21,7 @@ def login(request):
     return render(request, "accounts/login.html")
 
 def all_jobs(request):
-    jobs = Job.objects.all()[0:3]
+    jobs = Job.objects.all()
     return render(request, 'all_jobs.html', {'jobs': jobs})
 
 def registerPage(request):

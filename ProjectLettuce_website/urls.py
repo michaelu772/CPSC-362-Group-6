@@ -19,6 +19,8 @@ from django.contrib.auth import views as auth_views
 
 from . import views
 
+from apps.job.views import add_job
+
 
 
 urlpatterns = [
@@ -34,6 +36,6 @@ urlpatterns = [
     ),
     path("accounts/logout", auth_views.LogoutView.as_view(), name="logout"),
     path("accounts/register", views.registerPage, name="register"),
-    #path("add_job/", views.add_job, name="add_job"),
-    path("all_jobs", views.all_jobs, name="all_jobs"),
+    path("jobs/add/", add_job, name="add_job"),
+    path("jobs/all", views.all_jobs, name="all_jobs"),
 ]

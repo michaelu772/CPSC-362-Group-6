@@ -1,15 +1,15 @@
 
 <nav>
     {% url 'index' as index_url%}
-    <span>{% if request.path == index_url %}Home{% else %}<a href="{{ index_url }}">Home</a>{% endif %}</span>
+    <span style="color: white;">{% if request.path == index_url %}Home{% else %}<a href="{{ index_url }}">Home</a>{% endif %}</span>
     {% url 'about' as about_url%}
-    <span>{% if request.path == about_url %}About{% else %}<a href="{{ about_url }}">About</a>{% endif %}</span>
+    <span style="color: white;">{% if request.path == about_url %}About{% else %}<a href="{{ about_url }}">About</a>{% endif %}</span>
     {% url 'login' as login_url%}
     {% url 'register' as register_url %}
     <span style="float:right">
         {% if user.is_authenticated %}
             {% url 'profile' as profile_url %}
-            <span>Hi {% if request.path == profile_url %}{{user.username}}{% else %}<a href="{{ profile_url }}">{{user.username}}</a>{% endif %}</span>
+            <span style="color: white;">Hi {% if request.path == profile_url %}{{user.username}}{% else %}<a href="{{ profile_url }}">{{user.username}}</a>{% endif %}</span>
             <span><a href="{% url 'logout' %}">Logout</a></span>
         {% elif request.path == register_url or request.path == login_url %}
 

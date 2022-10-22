@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title" style="justify-content: center;">Create a job</h1>
+    <div class="textBx">
+        <div class="container_h">
+
+            <form method="post" action=".">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                    {% for error in form.errors %}
+                        <div class="notification is-danger">
+                            Error: {{ error }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="field">
+                    <h3>Title</h3>
+
+                    <textarea id="id_title_desc" name="title" rows="1" cols="50" style="border: 1px solid white"></textarea>
+                </div>
+
+                <div class="field">
+                    <h3>Short Description</h3>
+
+                    <textarea id="id_short_desc" name="short_description" rows="3" cols="50" style="border: 1px solid white"></textarea>
+                </div>
+
+                <div class="field">
+                    <h3>Long Description</h3>
+
+                    <textarea id="id_long_desc" name="long_description" rows="6" cols="50" style="border: 1px solid white"></textarea>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <button class="btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
